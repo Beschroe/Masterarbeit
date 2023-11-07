@@ -68,7 +68,6 @@ def truncate(cls, A, max_rank, abs_err=None, rel_err=None, dtree=None):
     for leaf in dtree.get_leaves():
         # Blattmatrizen
         dim = dtree.get_dim(leaf)
-        print("Typ: ", type(dim[0]))
         A_leaf = matricise(A, list(dim))
         # Singulärwertzerlegung
         U_leaves[leaf], sv[leaf], _ = np.linalg.svd(A_leaf, full_matrices=False)
