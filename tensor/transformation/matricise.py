@@ -20,7 +20,7 @@ def matricise(X, t, copy=False):
         raise ValueError("'X' muss ein N-D np.ndarray mit N>=2 sein.")
     if not isinstance(t, list):
         raise ValueError("'t' muss eine Liste nicht-negativer ints ohne Duplikate sein.")
-    if not all(np.issubdtype(type(item), np.integer) for item in t):
+    if not all(np.issubdtype(type(item), int) for item in t):
         raise ValueError("'t' muss eine Liste nicht-negativer ints ohne Duplikate sein.")
     if not all(item >= 0 for item in t):
         raise ValueError("'t' muss eine Liste nicht-negativer ints ohne Duplikate sein.")

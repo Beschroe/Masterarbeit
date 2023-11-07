@@ -172,7 +172,7 @@ class dimtree:
         """
         Gibt den Index des durch 'ind' referenzierten Knotens zurück.
         """
-        assert isinstance(ind, int) or isinstance(ind, np.int32)
+        assert np.issubdtype(type(ind), int)
         p = self.get_parent(ind)
         pc = self.get_children(p)
         if pc[0] == ind:
@@ -184,7 +184,7 @@ class dimtree:
         """
         Gibt zurück, ob der durch 'ind' referenzierte Knoten ein linkes Kind ist.
         """
-        assert isinstance(ind, int) or isinstance(ind, np.int32)
+        assert np.issubdtype(type(ind), int)
         p = self.get_parent(ind)
         pc = self.get_children(p)
         if pc[0] == ind:
@@ -196,7 +196,7 @@ class dimtree:
         """
         Gibt zurück, ob der durch 'ind' referenzierte Knoten ein rechtes Kind ist.
         """
-        assert isinstance(ind, int) or isinstance(ind, np.int32)
+        assert np.issubdtype(type(ind), int)
         p = self.get_parent(ind)
         pc = self.get_children(p)
         if pc[1] == ind:
@@ -208,7 +208,7 @@ class dimtree:
         """
         Gibt zurück, ob der durch 'ind' referenzierte Knoten ein innerer Knoten ist.
         """
-        assert isinstance(ind, int) or isinstance(ind, np.int32)
+        assert np.issubdtype(type(ind), int)
         if not np.all(self.children[ind] == [-1, -1]):
             return True
         else:

@@ -15,7 +15,7 @@ def merge_modes(x, modes):
         raise ValueError("'x' muss ein ND-np.ndarray mit N=>2 sein.")
     if not isinstance(modes, list):
         raise TypeError("'modes' muss eine list nicht-negativer ints ohne Duplikate sein.")
-    if not all(np.issubdtype(type(item), np.integer) for item in modes):
+    if not all(np.issubdtype(type(item), int) for item in modes):
         raise ValueError("'modes' muss eine list nicht-negativer ints ohne Duplikate sein.")
     if not all(item >= 0 for item in modes):
         raise ValueError("'modes' muss eine list nicht-negativer ints ohne Duplikate sein.")

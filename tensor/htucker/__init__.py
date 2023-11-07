@@ -76,7 +76,7 @@ class HTucker:
             raise TypeError("'B' muss ein dict mit nicht-negativen ints als keys und 3D-np.ndarrays als values sein.")
         if not all(isinstance(v, np.ndarray) for v in B.values()):
             raise ValueError("'B' muss ein dict mit nicht-negativen ints als keys und 3D-np.ndarrays als values sein.")
-        if not all(np.issubdtype(type(k), np.int32) for k in B.keys()):
+        if not all(np.issubdtype(type(k), int) for k in B.keys()):
             raise ValueError("'B' muss ein dict mit nicht-negativen ints als keys und 3D-np.ndarrays als values sein.")
         if not all(len(v.shape) == 3 for v in B.values()):
             raise ValueError("'B' muss ein dict mit nicht-negativen ints als keys und 3D-np.ndarrays als values sein.")

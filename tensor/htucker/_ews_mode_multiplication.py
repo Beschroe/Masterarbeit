@@ -18,7 +18,7 @@ def ews_mode_multiplication(cls, x, vec, mu):
         raise TypeError("'vec' ist kein np.ndarray.")
     if len(vec.shape) != 1:
         raise ValueError("'vec' ist kein 1D-np.ndarray.")
-    if not np.issubdtype(type(mu), np.integer):
+    if not np.issubdtype(type(mu), int):
         raise TypeError("'mu' ist kein integer.")
     if mu not in range(x.order):
         raise ValueError("'mu' ist kein integer aus {0, ...,d-1} wobei d die Ordnung von 'x' ist.")

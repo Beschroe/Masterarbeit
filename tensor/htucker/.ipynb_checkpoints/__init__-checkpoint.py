@@ -69,7 +69,7 @@ class HTucker:
             raise ValueError("'U' must be a dict with non-negative integers as keys and 2D np.ndarrays as values.")
         if not all(isinstance(v, np.ndarray) for v in U.values()):
             raise ValueError("'U' must be a dict with non-negative integers as keys and 2D np.ndarrays as values.")
-        if not all(np.issubdtype(type(k), np.int32) for k in U.keys()):
+        if not all(np.issubdtype(type(k), int) for k in U.keys()):
             raise ValueError("'U' must be a dict with non-negative integers as keys and 2D np.ndarrays as values.")
         if not all(len(v.shape) == 2 for v in U.values()):
             raise ValueError("'U' must be a dict with non-negative integers as keys and 2D np.ndarrays as values.")
@@ -77,7 +77,7 @@ class HTucker:
             raise ValueError("'B' must be a dict with non-negative integers as keys and 3D np.ndarrays as values.")
         if not all(isinstance(v, np.ndarray) for v in B.values()):
             raise ValueError("'B' must be a dict with non-negative integers as keys and 3D np.ndarrays as values.")
-        if not all(np.issubdtype(type(k), np.int32) for k in B.keys()):
+        if not all(np.issubdtype(type(k), int) for k in B.keys()):
             raise ValueError("'B' must be a dict with non-negative integers as keys and 3D np.ndarrays as values.")
         if not all(len(v.shape) == 3 for v in B.values()):
             raise ValueError("'B' must be a dict with non-negative integers as keys and 3D np.ndarrays as values.")

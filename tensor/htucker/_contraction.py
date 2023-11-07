@@ -30,7 +30,7 @@ def contract(cls, x, y, dims_x, dims_y):
     if dims_y is None:
         dims_y = np.array(dims_x).astype(int)
     else:
-        if not all(np.issubdtype(type(n), np.integer) for n in dims_y) or not all(n >= 0 for n in dims_y):
+        if not all(np.issubdtype(type(n), int) for n in dims_y) or not all(n >= 0 for n in dims_y):
             raise ValueError("Alle Elemente aus 'dims_x' und 'dims_y' müssen positive ints sein. Außerdem dürfen keine"
                              "Duplikate vorhanden sein.")
         if len(set(dims_x)) < len(dims_x):
@@ -39,7 +39,7 @@ def contract(cls, x, y, dims_x, dims_y):
     if dims_x is None:
         dims_x = np.array(dims_y).astype(int)
     else:
-        if not all(np.issubdtype(type(n), np.integer) for n in dims_x) or not all(n >= 0 for n in dims_x):
+        if not all(np.issubdtype(type(n), int) for n in dims_x) or not all(n >= 0 for n in dims_x):
             raise ValueError("Alle Elemente aus 'dims_x' und 'dims_y' müssen positive ints sein. Außerdem dürfen keine"
                              "Duplikate vorhanden sein.")
         if len(set(dims_x)) < len(dims_x):
