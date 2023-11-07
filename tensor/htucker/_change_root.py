@@ -16,7 +16,7 @@ def change_root(cls, x, ind, lr_subtree="right"):
 
     if not isinstance(x, cls):
         raise TypeError("'x' ist kein hierarchischer Tuckertensor.")
-    if not np.issubdtype(type(ind), int):
+    if not np.issubdtype(type(ind), np.integer):
         raise TypeError("'ind' ist kein nicht-negativer int zwischen 0 und 2 * x.order - 1.")
     if not ind >= 0 or ind >= 2 * x.order - 1:
         raise ValueError("'ind' ist kein nicht-negativer int zwischen 0 und 2 * x.order - 1.")

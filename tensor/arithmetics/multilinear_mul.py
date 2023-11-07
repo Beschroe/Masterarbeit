@@ -22,7 +22,7 @@ def multi_mul(x, U, modes):
         raise ValueError("'U' muss eine list bestehnd aus 2D-np.ndarrays sein.")
     if not isinstance(modes, list):
         raise ValueError("'modes' muss eine list nicht-negativer ints ohne Duplikate sein.")
-    if not all(np.issubdtype(type(item), int) for item in modes):
+    if not all(np.issubdtype(type(item), np.integer) for item in modes):
         raise ValueError("'modes' muss eine list nicht-negativer ints ohne Duplikate sein.")
     if not all(item >= 0 for item in modes):
         raise ValueError("'modes' muss eine list nicht-negativer ints ohne Duplikate sein.")

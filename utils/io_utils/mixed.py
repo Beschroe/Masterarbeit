@@ -10,7 +10,7 @@ def int_keys_to_str(d):
     for key, value in d.items():
         if isinstance(value, dict):
             value = int_keys_to_str(value)
-        if np.issubdtype(type(key), int):
+        if np.issubdtype(type(key), np.integer):
             key = str(key)
         d_new[key] = value
     return d_new

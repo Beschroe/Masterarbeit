@@ -18,7 +18,7 @@ def mode_multiplication(U, A, mu):
         raise TypeError("'A' muss ein ND-np.array mit N >= 1 sein.")
     if not len(A.shape) >= 1:
         raise ValueError("'A' muss ein ND-np.array mit N >= 1 sein.")
-    if not np.issubdtype(type(mu), int):
+    if not np.issubdtype(type(mu), np.integer):
         raise TypeError("'mu' muss ein int mit 0 <= mu < len(A.shape) sein.")
     if not (0 <= mu < len(A.shape)):
         raise ValueError("'mu' muss ein int mit 0 <= mu < len(A.shape) sein.")

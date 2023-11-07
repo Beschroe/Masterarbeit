@@ -23,17 +23,17 @@ def truncate(cls, A, max_rank, abs_err=None, rel_err=None, dtree=None):
         raise TypeError("'A' muss ein ND-np.ndarray mit N >= 1 sein.")
     if not len(A.shape) >= 1:
         raise ValueError("'A' muss ein ND-np.ndarray mit N >= 1 sein.")
-    if not np.issubdtype(type(max_rank), int):
+    if not np.issubdtype(type(max_rank), np.integer):
         raise TypeError("'max_rank' muss ein positiver int sein.")
     if not max_rank >= 1:
         raise ValueError("'max_rank' muss ein positiver int sein.")
     if abs_err is not None:
-        if not np.issubdtype(type(abs_err), float):
+        if not np.issubdtype(type(abs_err),np.float):
             raise TypeError("'abs_err' muss ein nicht-negativer float sein.")
         if not abs_err > 0:
             raise ValueError("'rel_err' muss ein nicht-negativer float sein.")
     if rel_err is not None:
-        if not np.issubdtype(type(rel_err), float):
+        if not np.issubdtype(type(rel_err),np.float):
             raise TypeError("'abs_err' muss ein nicht-negativer float sein.")
         if not rel_err > 0:
             raise ValueError("'rel_err' muss ein nicht-negativer float sein.")
@@ -68,8 +68,9 @@ def truncate(cls, A, max_rank, abs_err=None, rel_err=None, dtree=None):
     for leaf in dtree.get_leaves():
         # Blattmatrizen
         dim = dtree.get_dim(leaf)
+        print("Typ: ", type(dim[0]))
         A_leaf = matricise(A, list(dim))
-        # Singulärwertzerkegubg
+        # Singulärwertzerlegung
         U_leaves[leaf], sv[leaf], _ = np.linalg.svd(A_leaf, full_matrices=False)
         # Bestimme notwendigen Rang, um die Fehlertoleranzen einzuhalten
         rank[leaf], error[leaf], sat = cls.trunc_rank(sv[leaf], max_rank=max_rank, abs_err=abs_err, rel_err=rel_err)

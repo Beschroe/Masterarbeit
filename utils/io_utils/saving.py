@@ -17,9 +17,9 @@ def save(fname, data):
         save_dict(fname, data)
     elif isinstance(data, HTucker):
         save_object(fname, data)
-    elif np.issubdtype(type(data), float):
+    elif np.issubdtype(type(data), np.float):
         save_array(fname, np.array(data))
-    elif np.issubdtype(type(data), int):
+    elif np.issubdtype(type(data), np.integer):
         save_array(fname, np.array(data))
     else:
         raise ValueError("'data' muss entweder ein np.ndarray, HTucker Objekt, dict, float oder int sein.")
@@ -35,13 +35,13 @@ def save_array(fname, arr):
     if not fname.endswith(".npy"):
         raise ValueError("'fname' muss mit '.npy' enden.")
     # Pruefe arr
-    if not isinstance(arr, np.ndarray) and not np.issubdtype(type(arr), float)\
-            and not np.issubdtype(type(arr), int):
+    if not isinstance(arr, np.ndarray) and not np.issubdtype(type(arr),np.float)\
+            and not np.issubdtype(type(arr), np.integer):
         raise ValueError("'arr' muss entweder ein np.ndarray, float oder int sein.")
 
-    if np.issubdtype(type(arr), float):
+    if np.issubdtype(type(arr), np.float):
         arr = np.array(arr)
-    if np.issubdtype(type(arr), int):
+    if np.issubdtype(type(arr), np.integer):
         arr = np.array(arr)
 
     try:

@@ -10,17 +10,17 @@ def truncate_htucker(cls,x, max_rank, abs_err=None, rel_err=None):
     # Argument Checks
     if not isinstance(x, cls):
         raise TypeError("'x' ist kein hierarchischer Tuckertensor.")
-    if not np.issubdtype(type(max_rank), int):
+    if not np.issubdtype(type(max_rank), np.integer):
         raise TypeError("'max_rank' muss ein positiver int sein.")
     if max_rank < 1:
         raise ValueError("'max_rank' muss ein positiver int sein.")
     if abs_err is not None:
-        if not np.issubdtype(type(abs_err), float):
+        if not np.issubdtype(type(abs_err), np.float):
             raise TypeError("'abs_err' muss ein positiver float sein.")
         if not abs_err > 0:
             raise ValueError("'abs_err' muss ein positiver float sein.")
     if rel_err is not None:
-        if not np.issubdtype(type(rel_err), float):
+        if not np.issubdtype(type(rel_err), np.float):
             raise TypeError("'rel_err' muss ein positiver float sein.")
         if not rel_err > 0:
             raise ValueError("'rel_err' muss ein positiver float sein.")

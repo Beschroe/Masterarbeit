@@ -30,7 +30,7 @@ def ews_multiplication(cls, x, y, max_rank, abs_err=None):
     if not max_rank > 0:
         raise ValueError("'max_rank' ist kein positiver integer.")
     if abs_err is not None:
-        if not np.issubdtype(type(abs_err), float):
+        if not np.issubdtype(type(abs_err),np.float):
             raise TypeError("'abs_err' ist kein float.")
         if not abs_err > 0:
             raise ValueError("'abs_err' ist kein positiver float.")

@@ -15,7 +15,7 @@ def mode_multiplication(cls, x, A, mu):
         raise TypeError("'x' ist kein hierarchischer Tuckertensor.")
     if not isinstance(A, np.ndarray):
         raise TypeError("'A' ist kein np.ndarray.")
-    if not isinstance(mu, int):
+    if not np.issubdtype(type(mu), np.integer):
         raise TypeError("'mu' ist kein integer.")
     if not len(A.shape) == 2:
         raise ValueError("'A' ist kein 2D-np.ndarray.")

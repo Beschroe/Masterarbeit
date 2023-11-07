@@ -14,7 +14,7 @@ def get(self, key):
         raise ValueError("Der hierarchische Tuckertensor umfasst {} Dimensions. Für jede davon muss ein index/slice"
                          " angegeben werden.".format(self.order))
 
-    elif np.issubdtype(type(key), int):
+    elif np.issubdtype(type(key), np.integer):
         raise ValueError("Der hierarchische Tuckertensor umfasst {} Dimensions. Für jede davon muss ein index/slice"
                          " angegeben werden.".format(self.order))
 
@@ -32,7 +32,7 @@ def get(self, key):
             dim_t = z.dtree.get_dim(t)[0]
             ind_t = ind[dim_t]
 
-            if np.issubdtype(type(ind_t), int):
+            if np.issubdtype(type(ind_t), np.integer):
                 check_index(ind_t, dim_t, z.shape)
                 z.U[t] = z.U[t][ind_t, :].reshape((1, -1))
             elif isinstance(ind_t, slice):

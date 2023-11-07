@@ -13,7 +13,7 @@ def scalar_mul(cls,x, a):
     # Argument Checks
     if not isinstance(x, cls):
         raise TypeError("'x' ist kein hierarchischer Tuckertensor.")
-    if not np.issubdtype(type(a), int) and not np.issubdtype(type(a), float):
+    if not np.issubdtype(type(a), np.integer) and not np.issubdtype(type(a),np.float):
         raise TypeError("'a' ist weder int noch float.")
 
     z = deepcopy(x)

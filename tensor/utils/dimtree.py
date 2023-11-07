@@ -81,7 +81,7 @@ class dimtree:
         """
         Gibt den Index des Elternknotens von 'ind' zurück.
         """
-        assert np.issubdtype(type(ind), int)
+        assert np.issubdtype(type(ind), np.integer)
         if ind == -1:
             return self.parent
         return self.parent[ind]
@@ -90,21 +90,21 @@ class dimtree:
         """
         Gibt den Index des linken Kindes des durch 'ind' referenzierten Knotens zurück.
         """
-        assert np.issubdtype(type(ind), int)
+        assert np.issubdtype(type(ind), np.integer)
         return self.children[ind][0]
 
     def get_right(self, ind):
         """
         Gibt den Index des rechten Kindes des durch 'ind' referenzierten Knotens zurück.
         """
-        assert np.issubdtype(type(ind), int)
+        assert np.issubdtype(type(ind), np.integer)
         return self.children[ind][1]
 
     def get_children(self, ind=-1):
         """
         Gibt die Indizes der Kinder des durch 'ind' referenzierten Knotens zurück.
         """
-        assert np.issubdtype(type(ind), int)
+        assert np.issubdtype(type(ind), np.integer)
         if ind == -1:
             return self.children
         else:
@@ -114,7 +114,7 @@ class dimtree:
         """
         Gibt zurück, ob es sich beim durch 'ind' referenzierten Knoten um ein Blatt handelt.
         """
-        assert np.issubdtype(type(ind), int)
+        assert np.issubdtype(type(ind), np.integer)
         assert ind >= 0
         if np.all(self.children[ind] == -1):
             return True
@@ -136,7 +136,7 @@ class dimtree:
         """
         Gibt zurück, ob es sich bei dem durch 'ind' referenzierten Knoten um die Wurzel handelt.
         """
-        assert np.issubdtype(type(ind), int)
+        assert np.issubdtype(type(ind), np.integer)
         if ind == 0:
             return True
         else:
@@ -158,7 +158,7 @@ class dimtree:
         """
         Gibt die Indizes der Knoten des durch 'ind' referenzierten Knotens in dfs Reihenfolge zurück.
         """
-        assert np.issubdtype(type(ind), int)
+        assert np.issubdtype(type(ind), np.integer)
         if self.is_leaf(ind):
             return [ind]
         else:
@@ -172,7 +172,7 @@ class dimtree:
         """
         Gibt den Index des durch 'ind' referenzierten Knotens zurück.
         """
-        assert np.issubdtype(type(ind), int)
+        assert np.issubdtype(type(ind), np.integer)
         p = self.get_parent(ind)
         pc = self.get_children(p)
         if pc[0] == ind:
@@ -184,7 +184,7 @@ class dimtree:
         """
         Gibt zurück, ob der durch 'ind' referenzierte Knoten ein linkes Kind ist.
         """
-        assert np.issubdtype(type(ind), int)
+        assert np.issubdtype(type(ind), np.integer)
         p = self.get_parent(ind)
         pc = self.get_children(p)
         if pc[0] == ind:
@@ -196,7 +196,7 @@ class dimtree:
         """
         Gibt zurück, ob der durch 'ind' referenzierte Knoten ein rechtes Kind ist.
         """
-        assert np.issubdtype(type(ind), int)
+        assert np.issubdtype(type(ind), np.integer)
         p = self.get_parent(ind)
         pc = self.get_children(p)
         if pc[1] == ind:
@@ -208,7 +208,7 @@ class dimtree:
         """
         Gibt zurück, ob der durch 'ind' referenzierte Knoten ein innerer Knoten ist.
         """
-        assert np.issubdtype(type(ind), int)
+        assert np.issubdtype(type(ind), np.integer)
         if not np.all(self.children[ind] == [-1, -1]):
             return True
         else:
@@ -218,7 +218,7 @@ class dimtree:
         """
         Gibt die Dimension(en) zurück, die durch den von 'ind' referenzierten Knoten repräsentiert werden.
         """
-        assert np.issubdtype(type(ind), int)
+        assert np.issubdtype(type(ind), np.integer)
         if self.is_leaf(ind):
             array = np.array(self.dim2ind)
             dim = np.argmax(array == ind)
@@ -247,14 +247,14 @@ class dimtree:
         """
         Gibt das Level, auf dem sich der durch 'ind' repräsentierte Knoten befindet, zurück.
         """
-        assert np.issubdtype(type(ind), int)
+        assert np.issubdtype(type(ind), np.integer)
         return self.level[ind]
 
     def get_nodes_of_level(self, lvl):
         """
         Gibt alle Indizes der Knoten des Level 'lvl' zurück.
         """
-        assert np.issubdtype(type(lvl), int)
+        assert np.issubdtype(type(lvl), np.integer)
         nodes = []
         for ind in self.get_nodes():
             if self.get_level(ind) == lvl:
@@ -289,7 +289,7 @@ class dimtree:
         """
         Gibt den Subtree des durch 'ind' referenzierten Knotens zurück.
         """
-        assert np.issubdtype(type(ind), int)
+        assert np.issubdtype(type(ind), np.integer)
         nodes = [ind]
         descendants = [ind]
         while len(nodes) > 0:
